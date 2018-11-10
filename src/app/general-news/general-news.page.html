@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>General News</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-card *ngFor="let data of headLines" (click)="toGetFullNews(data)">
+      <ion-img [src]="data.urlToImage"></ion-img>
+      <ion-card-content>
+        <ion-card-title>{{data.title}}</ion-card-title>
+        <p>{{data.description}} </p>
+      </ion-card-content>
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="loadMoreNews($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+  </ion-content>

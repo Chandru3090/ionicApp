@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-img [src]="news.urlToImage"></ion-img>
+    <ion-card-content>
+      <ion-card-title>{{news.title}}</ion-card-title>
+      <p>{{news.content.split('[')[0]}}<span><a [href]="news.url" target="_blank">Read More</a></span></p>
+    </ion-card-content>
+    <ion-item>
+      <ion-label>Author</ion-label>
+      <span item-start>{{news.author}}</span>
+    </ion-item>
+    <ion-item>
+      <ion-label>Published Time</ion-label>
+      <span item-start>{{news.publishedAt | date:'medium'}}</span>
+    </ion-item>
+  </ion-card>
+</ion-content>
